@@ -1,4 +1,5 @@
 {
+  "hoemPage": "htttp://mayazmohamed.github.io/sa3a-m3a-lhamra",
   "name": "test1",
   "private": true,
   "version": "0.0.0",
@@ -6,6 +7,8 @@
   "scripts": {
     "dev": "vite --port 8080 --host",
     "build": "tsc && vite build",
+    "predeploy": "pnpm build",
+    "deploy": "gh-pages -d build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

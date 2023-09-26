@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "./assets/images/cover.png";
 import "./App.css";
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 
 import VideoPlayer from "./components/youtube/VideoPlayer";
 import axios from "axios";
 
 function App() {
-  const [search, setSearch] = React.useState<string>("");
-  const [openInput, setOpenInput] = React.useState<boolean>(false);
-  const menuref = React.useRef<HTMLDivElement>(null);
-  const inputRef = React.useRef<HTMLInputElement>(null);
   const [activeTab, setActiveTab] = useState(0);
   const [dark, setDark] = useState(false);
   const [url, setUrl] = useState<[]>([]);
@@ -28,35 +23,11 @@ function App() {
       fetchVideoUrls();
     }, []);
 
-
-  const urls = [
-    "https://www.youtube.com/watch?v=mCoExlG4mdE",
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    "https://www.youtube.com/watch?v=WjVNUWTW6r4&ab_channel=Manhwahub",
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    "https://www.youtube.com/watch?v=mCoExlG4mdE",
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    "https://www.youtube.com/watch?v=WjVNUWTW6r4&ab_channel=Manhwahub",
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-    'https://www.youtube.com/watch?v=ZpiNUKpGI88&ab_channel=RubySessionsTV',
-  ]
   const [currentUrl, setCurrentUrl] = useState<string[]>(url.slice(0, 10));
 
   function handlePageChange(event: any, newPage: number) {
     setCurrentPage(newPage);
+    console.log(event);
     setCurrentUrl(url.slice((newPage - 1) * 10, newPage * 10));
 
   }
